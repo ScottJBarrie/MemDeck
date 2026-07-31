@@ -23,9 +23,9 @@ html, body {
   padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
 }
 #num {
-  width: 100%; max-width: 340px;
-  font-size: 24vw; font-weight: 200; text-align: center;
-  letter-spacing: 0.08em;
+  width: 92vw; max-width: 92vw;
+  font-size: min(30vw, 26vh); font-weight: 200; text-align: center;
+  letter-spacing: 0.04em;
   background: transparent; border: none; outline: none;
   color: #fff; font-variant-numeric: tabular-nums;
   -webkit-user-select: text; user-select: text;
@@ -71,6 +71,7 @@ function show(n) {
   img.onerror = function () {
     if (!triedJpg) { triedJpg = true; img.src = n + '.jpg'; return; }
     card.classList.remove('show');
+    miss.textContent = 'could not load ' + n + '.png or ' + n + '.jpg';
     miss.style.display = 'block';
   };
   img.src = n + '.png';
